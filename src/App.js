@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './Main'
+import AssetForm from './components/AssetForm';
+import UserProfile from './components/UserProfile';
+import AssetList from './components/AssetList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" exact component={Main} >
+              <Route path="/create-asset" element={<AssetForm/>} />
+              <Route path="/user-profile" element={<UserProfile/>} />
+              <Route path='/asset-list' element={<AssetList/>}/>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
   );
 }
 
