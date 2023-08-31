@@ -16,12 +16,11 @@ const AssetForm = () => {
     const enteredUsername = 'dev';
     const enteredPassword = 'dev@1234';
 
-    // Check if the entered username and password match the hardcoded values
     if (username === enteredUsername && password === enteredPassword) {
       setIsLoggedIn(true);
       setLoginError('');
     } else {
-      setLoginError('Invalid credentials'); // Display error message
+      setLoginError('Invalid credentials');
     }
   };
 
@@ -61,7 +60,7 @@ const AssetForm = () => {
       {!isLoggedIn ? (
         <div>
           <h2>Login to access AssetForm</h2>
-          {loginError && <p style={{ color: 'red' }}>{loginError}</p>} {/* Display error message */}
+          {loginError && <p style={{ color: 'red' }}>{loginError}</p>}
           <form onSubmit={handleLogin}>
             <div>
               <label>Username:</label>

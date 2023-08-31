@@ -3,11 +3,10 @@ import axios from 'axios';
 
 const UserProfile = () => {
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [dob, setDob] = useState('');
+  const [bankBalance, setBankBalance] = useState('');  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,11 +14,10 @@ const UserProfile = () => {
     try {
       const response = await axios.post('https://stienbiestask.onrender.com/api/register', {
         username,
-        password,
-        name,
         age,
         gender,
         dob,
+        bankBalance
       }); 
       console.log(response.data);
     } catch (error) {
@@ -36,15 +34,6 @@ const UserProfile = () => {
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </label>
         <br />
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </label>
-        <br />
-        <label>
-          Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-        </label>
         <br />
         <label>
           Age:
@@ -59,6 +48,11 @@ const UserProfile = () => {
         <label>
           Date of Birth:
           <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required />
+        </label>
+        <br />
+        <label>
+          Bank Balance:
+          <input type="number" value={bankBalance} onChange={(e) => setBankBalance(e.target.value)} required />
         </label>
         <br />
         <button type="submit">Register</button>
